@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import * as math from 'mathjs';
 
-const FisrtLabM4 = () => {
+const FirstLabM4 = () => {
     const [initialGuess, setInitialGuess] = useState<string>('1');
     const [tolerance, setTolerance] = useState<string>('0.0001');
     const [maxIterations, setMaxIterations] = useState<string>('100');
@@ -59,4 +59,4 @@ const FisrtLabM4 = () => {
     );
 };
 
-export default FisrtLabM4;
+export default FirstLabM4;

@@ -11,3 +11,8 @@
 .form-label input {
     padding: 10px 0 10px 10px;
 }
+
+.cnt {
+    display: flex;
+    gap: 10px;
+}
