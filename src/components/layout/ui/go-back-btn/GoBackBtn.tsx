@@ -1,6 +1,6 @@
-import "./GoBackBtn.css"
-import React, {useEffect, useState} from 'react';
-import {useLocation, useNavigate} from "react-router-dom";
+import './GoBackBtn.css';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const GoBackBtn = () => {
     const [visible, setVisible] = useState<boolean>(true);
@@ -9,13 +9,12 @@ const GoBackBtn = () => {
 
     const goBack = () => {
         navigate(-1);
-    }
+    };
 
     useEffect(() => {
         const path = location.pathname;
         setVisible(path !== '/');
     }, [location.pathname]);
-    
 
     return (
         <>

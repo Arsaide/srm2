@@ -1,6 +1,7 @@
-import "../FirstLab.css"
+import '../FirstLab.css';
 import React, { useState } from 'react';
 import * as math from 'mathjs';
+
 const FirstLabM1 = () => {
     const [a, setA] = useState<string>('1');
     const [b, setB] = useState<string>('2');
@@ -24,7 +25,10 @@ const FirstLabM1 = () => {
             return;
         }
 
-        while ((bTemp - aTemp) / 2 > parseFloat(tolerance) && iteration < maxIterationsNumber) {
+        while (
+            (bTemp - aTemp) / 2 > parseFloat(tolerance) &&
+            iteration < maxIterationsNumber
+        ) {
             const c = (aTemp + bTemp) / 2;
             if (math.evaluate(func(c)) === 0) {
                 setResult(c.toString());
@@ -43,49 +47,50 @@ const FirstLabM1 = () => {
         setError(null);
     };
 
-
     return (
         <div>
             <h2>Метод половинного ділення</h2>
             <p>[a; b]</p>
-            <form onSubmit={handleSubmit} className={"form"}>
-                <label className={"form-label"}>
+            <form onSubmit={handleSubmit} className={'form'}>
+                <label className={'form-label'}>
                     Значення a:
                     <input
                         type="number"
-                        placeholder={"Введіть значення"}
+                        placeholder={'Введіть значення'}
                         value={a}
-                        onChange={(e) => setA(e.target.value)} />
+                        onChange={e => setA(e.target.value)}
+                    />
                 </label>
-                <label className={"form-label"}>
+                <label className={'form-label'}>
                     Значення b:
                     <input
                         type="number"
-                        placeholder={"Введіть значення"}
+                        placeholder={'Введіть значення'}
                         value={b}
-                        onChange={(e) => setB(e.target.value)} />
+                        onChange={e => setB(e.target.value)}
+                    />
                 </label>
-                <label className={"form-label"}>
+                <label className={'form-label'}>
                     Точність ε:
                     <input
                         type="number"
-                        placeholder={"Введіть значення"}
+                        placeholder={'Введіть значення'}
                         value={tolerance}
-                        onChange={(e) => setTolerance(e.target.value)} />
+                        onChange={e => setTolerance(e.target.value)}
+                    />
                 </label>
-                <label className={"form-label"}>
+                <label className={'form-label'}>
                     Кількість ітерацій:
                     <input
                         type="number"
-                        placeholder={"Введіть значення"}
+                        placeholder={'Введіть значення'}
                         value={maxIterations}
-                        onChange={(e) => setMaxIterations(e.target.value)} />
+                        onChange={e => setMaxIterations(e.target.value)}
+                    />
                 </label>
                 <button type="submit">Розрахувати</button>
             </form>
-            {result !== null && (
-                <p>Наближений корінь: {result}</p>
-            )}
+            {result !== null && <p>Наближений корінь: {result}</p>}
             {error && <p>{error}</p>}
         </div>
     );

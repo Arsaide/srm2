@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SixthLaba = () => {
+const SixthLab = () => {
     return (
         <div>
             <p>Sixth laba</p>
@@ -8,4 +8,4 @@ const SixthLaba = () => {
     );
 };
 
-export default SixthLaba;
+export default SixthLab;

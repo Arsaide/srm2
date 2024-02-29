@@ -31,7 +31,7 @@ const FirstLabM3 = () => {
                 return;
             }
 
-            x = x - (fx / dfx);
+            x = x - fx / dfx;
             iteration++;
         }
 
@@ -42,24 +42,37 @@ const FirstLabM3 = () => {
     return (
         <div>
             <h2>Метод Ньютона</h2>
-            <form onSubmit={handleSubmit} className={"form"}>
-                <label className={"form-label"}>
+            <form onSubmit={handleSubmit} className={'form'}>
+                <label className={'form-label'}>
                     Початкове наближення:
-                    <input type="number" value={initialGuess} placeholder={"Введіть значення"} onChange={(e) => setInitialGuess(e.target.value)} />
+                    <input
+                        type="number"
+                        value={initialGuess}
+                        placeholder={'Введіть значення'}
+                        onChange={e => setInitialGuess(e.target.value)}
+                    />
                 </label>
-                <label className={"form-label"}>
+                <label className={'form-label'}>
                     Точність:
-                    <input type="number" value={tolerance} placeholder={"Введіть значення"} onChange={(e) => setTolerance(e.target.value)} />
+                    <input
+                        type="number"
+                        value={tolerance}
+                        placeholder={'Введіть значення'}
+                        onChange={e => setTolerance(e.target.value)}
+                    />
                 </label>
-                <label className={"form-label"}>
+                <label className={'form-label'}>
                     Кількість ітерацій:
-                    <input type="number" value={maxIterations} placeholder={"Введіть значення"} onChange={(e) => setMaxIterations(e.target.value)} />
+                    <input
+                        type="number"
+                        value={maxIterations}
+                        placeholder={'Введіть значення'}
+                        onChange={e => setMaxIterations(e.target.value)}
+                    />
                 </label>
                 <button type="submit">Розрахувати</button>
             </form>
-            {result !== null && (
-                <p>Наближений корінь: {result}</p>
-            )}
+            {result !== null && <p>Наближений корінь: {result}</p>}
             {error && <p>{error}</p>}
         </div>
     );
