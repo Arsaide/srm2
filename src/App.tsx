@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import FirstLabM1 from "./components/fisrt-lab/FirstLabM1";
+import FirstLabM2 from "./components/fisrt-lab/FirstLabM2";
+import FirstLabM3 from "./components/fisrt-lab/FirstLabM3";
+import FirstLabM4 from "./components/fisrt-lab/FirstLabM4";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>First lab result</h1>
+        <FirstLabM1/>
+        <FirstLabM2/>
+        <FirstLabM3/>
+        <FirstLabM4/>
     </div>
   );
 }

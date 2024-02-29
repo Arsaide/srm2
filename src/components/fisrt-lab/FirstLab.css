@@ -1,0 +1,13 @@
+.form {
+    max-width: 400px;
+}
+
+.form-label {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-label input {
+    padding: 10px 0 10px 10px;
+}
