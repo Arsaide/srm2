@@ -24,3 +24,4 @@ yarn-error.log*
 /README.md
 /.idea/vcs.xml
 /.idea/git_toolbox_prj.xml
+/.idea/workspace.xml

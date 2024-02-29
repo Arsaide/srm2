@@ -10,10 +10,12 @@ import FifthLab from "../pages/5th-lab/page";
 import SixthLaba from "../pages/6th-lab/page";
 import SeventhLab from "../pages/7th-lab/page";
 import EighthLab from "../pages/8th-lab/page";
+import GoBackBtn from "../components/layout/ui/go-back-btn/GoBackBtn";
 
 function App() {
   return (
     <div className="App">
+        <GoBackBtn/>
         <p>Група: ІА-31</p>
         <p>Студент: Мураховський Кирило Андрійович</p>
             <Routes>
