@@ -31,3 +31,4 @@ yarn-error.log*
 /.idea/discord.xml
 /.idea/codeStyles/Project.xml
 /.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore

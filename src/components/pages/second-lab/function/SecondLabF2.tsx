@@ -1,56 +1,53 @@
 import React, { useEffect, useState } from 'react';
-import { create, all } from 'mathjs';
-
-const math = create(all, {});
-
-const TableData = [
-    { x: -3, y: -4.24 },
-    { x: -1, y: -1.78 },
-    { x: 1, y: 1.78 },
-    { x: 3, y: 4.24 },
-];
+import * as math from 'mathjs';
+import { evaluate } from 'mathjs';
 
 const SecondLabF2 = () => {
-    const [result, setResult] = useState<number | null>(null);
+    const [tableData] = useState([
+        { x: -3, y: -4.24 },
+        { x: -1, y: -1.78 },
+        { x: 1, y: 1.78 },
+        { x: 3, y: 4.24 },
+    ]);
+
+    const xValues = tableData.map(row => row.x);
+    const yValues = tableData.map(row => row.y);
+    const wFunctions = [];
+
+    for (let i = 0; i < tableData.length; i++) {
+        let wFunction = '';
+        for (let j = 0; j < tableData.length; j++) {
+            if (j !== i) {
+                wFunction += `(x-${xValues[j]})/(${xValues[i]}-${xValues[j]})`;
+            }
+        }
+        wFunctions.push(wFunction);
+    }
+
+    const equations = [];
+    for (let i = 0; i < tableData.length; i++) {
+        equations.push(`${yValues[i]} * (${wFunctions[i]})`);
+    }
+    const equationString = equations.join(' + ');
+
+    const [result, setResult] = useState('');
 
     useEffect(() => {
-        const xValues = TableData.map(point => point.x);
-        const yValues = TableData.map(point => point.y);
-
-        const w = (x: number, i: number) => {
-            return (
-                xValues.reduce((acc, value, j) => {
-                    if (i === j) return acc;
-                    return acc * (x - value);
-                }, 1) /
-                xValues.reduce((acc, value, j) => {
-                    if (i === j) return acc;
-                    return acc * (xValues[i] - value);
-                }, 1)
-            );
-        };
-
-        const f = (x: number) => {
-            return yValues.reduce((acc, y, i) => acc + y * w(x, i), 0);
-        };
-
-        setResult(f(-0.5));
-    }, []);
-
-    const calculateEpsilon = (result: number) => {
-        const expectedValue = -0.121; // Меняем на правильное ожидаемое значение
-        const epsilon = Math.abs(result - expectedValue);
-        const relativeError = Math.abs(epsilon / expectedValue) * 100;
-        return relativeError;
-    };
-
-    const epsilon = calculateEpsilon(result || 0);
+        const calculatedResult = evaluate(equationString, { x: -0.5 });
+        setResult(calculatedResult);
+    }, [equationString]);
 
     return (
         <div>
-            <h2>Інтерполяційний многочлен Ньютона</h2>
-            <p>Результат f(x) = {result}</p>
-            <p>ε = {epsilon.toFixed(2)}%</p>
+            <h2>Інтерполяційний многочлен Лагранжа</h2>
+            <ul>
+                {wFunctions.map((wFunction, index) => (
+                    <li key={index}>{`w${index + 1}(x) = ${wFunction}`}</li>
+                ))}
+            </ul>
+            <h2>Result</h2>
+            <p>{`Equation: ${equationString}`}</p>
+            <p>{`Result for x = -0.5: ${result}`}</p>
         </div>
     );
 };
