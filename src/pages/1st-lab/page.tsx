@@ -1,10 +1,10 @@
 import React from 'react';
-import RenderFunc from '../../components/pages/fisrt-lab/RenderFunc';
+import FirstLabRenderFunc from '../../components/pages/fisrt-lab/FirstLabRenderFunc';
 
 const FirstLab = () => {
     return (
         <>
-            <RenderFunc />
+            <FirstLabRenderFunc />
         </>
     );
 };

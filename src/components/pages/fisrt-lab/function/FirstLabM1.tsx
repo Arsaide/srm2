@@ -1,4 +1,4 @@
-import '../FirstLab.css';
+import '../FirstLab.module.css';
 import React, { useState } from 'react';
 import * as math from 'mathjs';
 

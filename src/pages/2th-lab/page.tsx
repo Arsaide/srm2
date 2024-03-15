@@ -1,10 +1,12 @@
 import React from 'react';
+import SecondLabRenderFunc from '../../components/pages/second-lab/SecondLabRenderFunc';
 
 const SecondLab = () => {
     return (
-        <div>
-            <p>second laba</p>
-        </div>
+        <>
+            qeqweqw
+            <SecondLabRenderFunc />
+        </>
     );
 };
 

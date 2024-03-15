@@ -1,3 +1,4 @@
+import '../FirstLab.module.css';
 import React, { useState } from 'react';
 import * as math from 'mathjs';
 
@@ -27,7 +28,7 @@ const FirstLabM3 = () => {
             }
 
             if (dfx === 0) {
-                setError('Производная равна нулю!');
+                setError('dx = 0!');
                 return;
             }
 
@@ -35,7 +36,7 @@ const FirstLabM3 = () => {
             iteration++;
         }
 
-        setError('Достигнуто максимальное количество итераций!');
+        setError('Error');
         setResult(null);
     };
 

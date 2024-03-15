@@ -4,7 +4,7 @@ import FirstLabM2 from './function/FirstLabM2';
 import FirstLabM3 from './function/FirstLabM3';
 import FirstLabM4 from './function/FirstLabM4';
 
-const RenderFunc = () => {
+const FirstLabRenderFunc = () => {
     const [activeFunc, setActiveFunc] = useState<string>('FirstLabM1');
 
     const renderFunc = (component: string) => {
@@ -45,4 +45,4 @@ const RenderFunc = () => {
     );
 };
 
-export default RenderFunc;
+export default FirstLabRenderFunc;
