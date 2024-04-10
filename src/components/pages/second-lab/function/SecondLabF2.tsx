@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { evaluate } from 'mathjs';
 
 interface DataItem {
     x: number;
