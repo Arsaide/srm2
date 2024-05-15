@@ -1,9 +1,10 @@
 import React from 'react';
+import FourthLabRenderFunc from '../../components/pages/fourth-lab/FourthLabRenderFunc';
 
 const FourthLab = () => {
     return (
         <div>
-            <p>fourth laba</p>
+            <FourthLabRenderFunc />
         </div>
     );
 };
