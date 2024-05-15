@@ -23,6 +23,7 @@ export function printEulerCauchyMethod(
         tableRows.push(
             <tr key={i}>
                 <td>{i}</td>
+                <td>{i / 10 + 1}</td>
                 <td>{yEc}</td>
                 <td>{error}</td>
             </tr>,
@@ -37,9 +38,10 @@ export function printEulerCauchyMethod(
         <table>
             <thead>
                 <tr>
-                    <th>Step</th>
-                    <th>Euler-Cauchy Method value</th>
-                    <th>Absolute error</th>
+                    <th>k</th>
+                    <th>xk</th>
+                    <th>yk</th>
+                    <th>ε</th>
                 </tr>
             </thead>
             <tbody>{tableRows}</tbody>

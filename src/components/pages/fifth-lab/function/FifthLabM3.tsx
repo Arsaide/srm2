@@ -22,6 +22,8 @@ export function printRungeKuttaMethod(
         tableRows.push(
             <tr key={i}>
                 <td>{i}</td>
+                <td>{i / 10 + 1}</td>
+                <td>{y}</td>
                 <td>{y}</td>
                 <td>{error}</td>
             </tr>,
@@ -40,9 +42,10 @@ export function printRungeKuttaMethod(
         <table>
             <thead>
                 <tr>
-                    <th>Step</th>
-                    <th>Runge-Kutta Method value</th>
-                    <th>Absolute error</th>
+                    <th>k</th>
+                    <th>xk</th>
+                    <th>yk</th>
+                    <th>ε</th>
                 </tr>
             </thead>
             <tbody>{tableRows}</tbody>

@@ -1,57 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { printEulerMethod } from './function/FifthLabM1';
 import { printEulerCauchyMethod } from './function/FifthLabM2';
 import { printRungeKuttaMethod } from './function/FifthLabM3';
+import {
+    derivativeFunction,
+    h,
+    preciseFunction,
+    xEnd,
+    xStart,
+    y0,
+    yd0,
+} from './index';
 
 const FifthLabRenderFunc: React.FC = () => {
-    const derivativeFunction = (x: number, y: number, yd: number): number => {
-        return (5 * x - 4 * y - 3 * x * yd) / x ** 2;
-    };
+    const [activeFunc, setActiveFunc] = useState<string>('Method1');
 
-    const preciseFunction = (x: number): number => {
-        return 5 * x + x ** 2 + x ** 2 * Math.log(Math.abs(x));
+    const renderActiveFunc = () => {
+        switch (activeFunc) {
+            case 'Method1':
+                return printEulerMethod(
+                    derivativeFunction,
+                    xStart,
+                    xEnd,
+                    y0,
+                    yd0,
+                    h,
+                    preciseFunction,
+                );
+            case 'Method2':
+                return printEulerCauchyMethod(
+                    derivativeFunction,
+                    xStart,
+                    xEnd,
+                    y0,
+                    yd0,
+                    h,
+                    preciseFunction,
+                );
+            case 'Method3':
+                return printRungeKuttaMethod(
+                    derivativeFunction,
+                    xStart,
+                    xEnd,
+                    y0,
+                    yd0,
+                    h,
+                    preciseFunction,
+                );
+            default:
+                return null;
+        }
     };
-
-    const xStart = 1;
-    const xEnd = 2;
-    const y0 = 6;
-    const yd0 = 8;
-    const h = 0.1;
 
     return (
         <div>
-            <h2>Eulers Method</h2>
-            {printEulerMethod(
-                derivativeFunction,
-                xStart,
-                xEnd,
-                y0,
-                yd0,
-                h,
-                preciseFunction,
-            )}
+            <div className={'cnt'}>
+                <button onClick={() => setActiveFunc('Method1')}>
+                    Метод Ейлера
+                </button>
+                <button onClick={() => setActiveFunc('Method2')}>
+                    Метод Ейлера-Коші
+                </button>
+                <button onClick={() => setActiveFunc('Method3')}>
+                    Метод Рунге-Кутта
+                </button>
+            </div>
 
-            <h2>Euler-Cauchy Method</h2>
-            {printEulerCauchyMethod(
-                derivativeFunction,
-                xStart,
-                xEnd,
-                y0,
-                yd0,
-                h,
-                preciseFunction,
-            )}
-
-            <h2>Runge-Kutta Method</h2>
-            {printRungeKuttaMethod(
-                derivativeFunction,
-                xStart,
-                xEnd,
-                y0,
-                yd0,
-                h,
-                preciseFunction,
-            )}
+            <h2>
+                {activeFunc === 'Method1'
+                    ? 'Метод Ейлера'
+                    : activeFunc === 'Method2'
+                      ? 'Метод Ейлера-Коші'
+                      : 'Метод Рунге-Кутта'}
+            </h2>
+            {renderActiveFunc()}
         </div>
     );
 };
