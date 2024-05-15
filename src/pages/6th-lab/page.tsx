@@ -1,9 +1,10 @@
 import React from 'react';
+import SixthLabRenderFunc from '../../components/pages/sixth-lab/SixthLabRenderFunc';
 
 const SixthLab = () => {
     return (
         <div>
-            <p>Sixth laba</p>
+            <SixthLabRenderFunc />
         </div>
     );
 };
