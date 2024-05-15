@@ -1,30 +1,24 @@
 import React from 'react';
+import { firstMatrix } from '../index';
 
 const SixthLabM1 = () => {
-    const matrix: number[][] = [
-        [3, -8, 1, -7, 96],
-        [6, 4, 8, 5, -13],
-        [-1, 1, -9, -3, -54],
-        [-6, 6, 9, -4, 82],
-    ];
-
-    const factor: number = matrix[0][0];
-    for (let i = 0; i < matrix[0].length; i++) {
-        matrix[0][i] /= factor;
+    const factor: number = firstMatrix[0][0];
+    for (let i = 0; i < firstMatrix[0].length; i++) {
+        firstMatrix[0][i] /= factor;
     }
 
-    for (let i = 1; i < matrix.length; i++) {
-        const factor: number = matrix[i][0] / matrix[0][0];
-        for (let j = 0; j < matrix[i].length; j++) {
-            matrix[i][j] -= factor * matrix[0][j];
+    for (let i = 1; i < firstMatrix.length; i++) {
+        const factor: number = firstMatrix[i][0] / firstMatrix[0][0];
+        for (let j = 0; j < firstMatrix[i].length; j++) {
+            firstMatrix[i][j] -= factor * firstMatrix[0][j];
         }
     }
 
     const solutions: number[] = [];
-    for (let i = matrix.length - 1; i >= 0; i--) {
-        let solution: number = matrix[i][matrix[i].length - 1];
-        for (let j = i + 1; j < matrix.length; j++) {
-            solution -= matrix[i][j] * solutions[solutions.length - (j - i)];
+    for (let i = firstMatrix.length - 1; i >= 0; i--) {
+        let solution: number = firstMatrix[i][firstMatrix[i].length - 1];
+        for (let j = i + 1; j < firstMatrix.length; j++) {
+            solution -= firstMatrix[i][j] * solutions[solutions.length - (j - i)];
         }
         solutions.push(solution);
     }

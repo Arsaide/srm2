@@ -1,13 +1,7 @@
 import React from 'react';
+import { secondMatrix } from '../index';
 
 const SixthLabM2 = () => {
-    const matrix = [
-        [18, -2, 7, 1, 50],
-        [-1, 14, -3, 2, 2],
-        [5, 5, 26, 7, 273],
-        [-2, -6, 9, 24, 111],
-    ];
-
     const Seidel = (matA: number[][], matB: number[]): number[] => {
         const A: number[][] = matA;
         const B: number[] = matB;
@@ -70,8 +64,10 @@ const SixthLabM2 = () => {
         return sum;
     };
 
-    const vectorB: number[] = matrix.map(row => row[row.length - 1]);
-    const matrixA: number[][] = matrix.map(row => row.slice(0, row.length - 1));
+    const vectorB: number[] = secondMatrix.map(row => row[row.length - 1]);
+    const matrixA: number[][] = secondMatrix.map(row =>
+        row.slice(0, row.length - 1),
+    );
 
     const solutions: number[] = Seidel(matrixA, vectorB);
 
