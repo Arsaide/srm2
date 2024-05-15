@@ -24,7 +24,6 @@ export function printRungeKuttaMethod(
                 <td>{i}</td>
                 <td>{i / 10 + 1}</td>
                 <td>{y}</td>
-                <td>{y}</td>
                 <td>{error}</td>
             </tr>,
         );
