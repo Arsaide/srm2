@@ -21,10 +21,10 @@ const SeventhLabRenderFunc = () => {
             <h1></h1>
             <div className={'cnt'}>
                 <button onClick={() => setActiveFunc('Method1')}>
-                    Метод НАЗВАНИЕ
+                    Метод Ітерацій
                 </button>
                 <button onClick={() => setActiveFunc('Method2')}>
-                    Метод НАЗВАНИЕ
+                    Метод Ньютона
                 </button>
             </div>
             {renderFunc(activeFunc)}

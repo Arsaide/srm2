@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import * as math from 'mathjs';
 
 const EighthLabF1 = () => {
@@ -49,12 +49,10 @@ const EighthLabF1 = () => {
         };
 
         const borders = (matrix: number[][], add_matrix: number[], n: number) => {
-            // Граничные условия для y(0) - y'(0) = 0
             matrix[0][0] = 1;
             matrix[0][1] = -1;
             add_matrix[0] = 0;
 
-            // Граничные условия для y(1) + y'(1) = 0.5
             matrix[n][n - 1] = 1;
             matrix[n][n] = 1;
             add_matrix[n] = 0.5;
@@ -73,25 +71,26 @@ const EighthLabF1 = () => {
         setResult(result);
     }, []);
 
+    useEffect(() => {
+        calcRes();
+    }, []);
+
     return (
         <div>
-            <button onClick={calcRes}>Магія</button>
-            <div>
-                {result.length > 0 && (
-                    <div>
-                        <h3>Результат роботи:</h3>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    {result.map((value, index) => (
-                                        <td key={index}>{value}</td>
-                                    ))}
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                )}
-            </div>
+            {result.length > 0 && (
+                <div>
+                    <h3>Результат роботи:</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                {result.map((value, index) => (
+                                    <td key={index}>{value}</td>
+                                ))}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            )}
         </div>
     );
 };
