@@ -1,6 +1,6 @@
 import { getError, getInterval } from '../index';
 
-export function printEulerCauchyMethod(
+export function eulerCauchyMethod(
     derivativeFunction: (x: number, y: number, yd: number) => number,
     xStart: number,
     xEnd: number,

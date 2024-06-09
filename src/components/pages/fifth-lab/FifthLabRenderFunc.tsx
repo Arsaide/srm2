@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { printEulerMethod } from './function/FifthLabM1';
-import { printEulerCauchyMethod } from './function/FifthLabM2';
-import { printRungeKuttaMethod } from './function/FifthLabM3';
+import { eulerMethod } from './function/FifthLabM1';
+import { eulerCauchyMethod } from './function/FifthLabM2';
+import { rungeKuttaMethod } from './function/FifthLabM3';
 import {
     derivativeFunction,
     h,
@@ -18,7 +18,7 @@ const FifthLabRenderFunc: React.FC = () => {
     const renderActiveFunc = () => {
         switch (activeFunc) {
             case 'Method1':
-                return printEulerMethod(
+                return eulerMethod(
                     derivativeFunction,
                     xStart,
                     xEnd,
@@ -28,7 +28,7 @@ const FifthLabRenderFunc: React.FC = () => {
                     preciseFunction,
                 );
             case 'Method2':
-                return printEulerCauchyMethod(
+                return eulerCauchyMethod(
                     derivativeFunction,
                     xStart,
                     xEnd,
@@ -38,7 +38,7 @@ const FifthLabRenderFunc: React.FC = () => {
                     preciseFunction,
                 );
             case 'Method3':
-                return printRungeKuttaMethod(
+                return rungeKuttaMethod(
                     derivativeFunction,
                     xStart,
                     xEnd,

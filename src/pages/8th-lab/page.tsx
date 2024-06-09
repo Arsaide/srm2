@@ -1,9 +1,10 @@
 import React from 'react';
+import EighthLabRenderFunc from '../../components/pages/eighth-lab/EighthLabRenderFunc';
 
 const EighthLab = () => {
     return (
         <div>
-            <p>Eighth laba</p>
+            <EighthLabRenderFunc />
         </div>
     );
 };

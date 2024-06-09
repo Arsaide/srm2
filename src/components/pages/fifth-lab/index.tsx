@@ -9,10 +9,6 @@ export function getInterval(start: number, end: number, h: number): number[] {
     return interval;
 }
 
-export function getError(theoretical: number, measured: number): number {
-    return Math.abs(theoretical - measured);
-}
-
 export const derivativeFunction = (x: number, y: number, yd: number): number => {
     return (5 * x - 4 * y - 3 * x * yd) / x ** 2;
 };
@@ -20,6 +16,10 @@ export const derivativeFunction = (x: number, y: number, yd: number): number => 
 export const preciseFunction = (x: number): number => {
     return 5 * x + x ** 2 + x ** 2 * Math.log(Math.abs(x));
 };
+
+export function getError(theoretical: number, measured: number): number {
+    return Math.abs(theoretical - measured);
+}
 
 export const xStart = 1;
 export const xEnd = 2;

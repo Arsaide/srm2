@@ -1,9 +1,10 @@
 import React from 'react';
+import SeventhLabRenderFunc from '../../components/pages/seventh-lab/SeventhLabRenderFunc';
 
 const SeventhLab = () => {
     return (
         <div>
-            <p>Seven laba</p>
+            <SeventhLabRenderFunc />
         </div>
     );
 };

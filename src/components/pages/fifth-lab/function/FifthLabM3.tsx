@@ -1,6 +1,6 @@
 import { getError, getInterval } from '../index';
 
-export function printRungeKuttaMethod(
+export function rungeKuttaMethod(
     derivativeFunction: (x: number, y: number, yd: number) => number,
     xStart: number,
     xEnd: number,
